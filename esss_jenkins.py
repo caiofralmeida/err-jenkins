@@ -149,7 +149,7 @@ class JenkinsBot(BotPlugin):
         self.save_user_settings(user, settings)
 
     @botcmd(split_args_with=None)
-    def hello(self, msg, args)
+    def hello(self, msg, args):
         return "Hello, {}".format(msg.frm.nick)
 
     @botcmd(split_args_with=None)
