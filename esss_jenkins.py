@@ -27,6 +27,7 @@ class JenkinsBot(BotPlugin):
             'JENKINS_TOKEN': '',
             'JENKINS_USERNAME': '',
             'JENKINS_URL': 'https://eden.esss.com.br/jenkins',
+            'SLACK_DOMAIN': '',
 
             'ROCKETCHAT_USER': '',
             'ROCKETCHAT_PASSWORD': '',
@@ -148,6 +149,10 @@ class JenkinsBot(BotPlugin):
         settings = self.load_user_settings(user)
         settings['last_job_listing'] = job_names
         self.save_user_settings(user, settings)
+
+    @botcmd
+    def hello(self, msg, args)
+        yield "Hello, {}".format(msg.frm.nick)
 
     @botcmd(split_args_with=None)
     def build(self, msg, args):
