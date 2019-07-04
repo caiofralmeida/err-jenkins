@@ -27,8 +27,6 @@ class JenkinsBot(BotPlugin):
             'JENKINS_TOKEN': '',
             'JENKINS_USERNAME': '',
             'JENKINS_URL': 'https://eden.esss.com.br/jenkins',
-            'SLACK_DOMAIN': '',
-
             'ROCKETCHAT_USER': '',
             'ROCKETCHAT_PASSWORD': '',
             'ROCKETCHAT_DOMAIN': '',
@@ -152,7 +150,7 @@ class JenkinsBot(BotPlugin):
 
     @botcmd
     def hello(self, msg, args)
-        yield "Hello, {}".format(msg.frm.nick)
+        return "Hello, {}".format(msg.frm.nick)
 
     @botcmd(split_args_with=None)
     def build(self, msg, args):
