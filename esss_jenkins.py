@@ -27,6 +27,7 @@ class JenkinsBot(BotPlugin):
             'JENKINS_TOKEN': '',
             'JENKINS_USERNAME': '',
             'JENKINS_URL': 'https://eden.esss.com.br/jenkins',
+            'SLACK_DOMAIN': '',
             'ROCKETCHAT_USER': '',
             'ROCKETCHAT_PASSWORD': '',
             'ROCKETCHAT_DOMAIN': '',
@@ -445,6 +446,10 @@ class JenkinsBot(BotPlugin):
     def _post_jenkins_json_request(self, post_url, user):
         jenkins_url = self.config['JENKINS_URL']
         token = self.load_user_settings(user)['token']
+
+        if self.config['SLACK_DOMAIN']:
+            user = "{}@{}".format(user, self.config['SLACK_DOMAIN'])
+
         if not token:
             raise RuntimeError('Token for user {} not configured'.format(user))
 
