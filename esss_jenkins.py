@@ -148,10 +148,6 @@ class JenkinsBot(BotPlugin):
         settings['last_job_listing'] = job_names
         self.save_user_settings(user, settings)
 
-    @botcmd
-    def hello(self, msg, args)
-        return "Hello, {}".format(msg.frm.nick)
-
     @botcmd(split_args_with=None)
     def build(self, msg, args):
         """Triggers jobs by an alias or build number from last `!find` or `!history` commands"""
